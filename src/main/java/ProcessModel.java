@@ -71,9 +71,10 @@ public class ProcessModel {
     // (which could be BLOCK, TIMER, or TERMINATE)
     int timeQuantum = scheduler.getTimeQuantum();
     Event newEvent = process.setRunning(currentTime+interruptTime, timeQuantum);
-    if (newEvent != null)
+    if (newEvent != null) {
       newEvents.add(newEvent);
-
+      //System.out.println("EVENT OUTPUT:       " + newEvent.toString()); //Testing code
+    }
     // dispatch selected process
     dispatch(process);
   }

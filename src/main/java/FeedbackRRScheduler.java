@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Properties;
 
 /**
@@ -7,7 +9,30 @@ import java.util.Properties;
  */
 public class FeedbackRRScheduler extends AbstractScheduler {
 
-  // TODO
+  protected PriorityQueue<Process> ready;
+  protected int timeQuantum;
+
+  @Override
+  public void initialize(Properties parameters) {
+    ready = new PriorityQueue<Process>(10, new ProcessComparator());
+    try{
+      timeQuantum = Integer.parseInt(parameters.getProperty("timeQuantum"));
+    }
+    catch(NumberFormatException e) {
+      System.err.println("timeQuantum not a number.");
+      System.exit(1);
+    }
+  }
+
+  @Override
+  public int getTimeQuantum() {
+    return timeQuantum;
+  }
+
+  @Override
+  public boolean isPreemptive() {
+    return true;
+  }
 
   /**
    * Adds a process to the ready queue.
@@ -15,9 +40,12 @@ public class FeedbackRRScheduler extends AbstractScheduler {
    * after having fully used its time quantum.
    */
   public void ready(Process process, boolean usedFullTimeQuantum) {
-
-    // TODO
-
+    if (usedFullTimeQuantum){
+      //Raise priority value, this means it has less priority
+      process.setPriority(process.getPriority() + 1);
+    }
+    System.out.println(process.getId());
+    ready.add(process);
   }
 
   /**
@@ -26,8 +54,11 @@ public class FeedbackRRScheduler extends AbstractScheduler {
    * Returns null if there is no process to run.
    */
   public Process schedule() {
-
-    // TODO
+    //We are using getPriority to determine the priority of the process
+    if (ready.size() > 0)
+    {
+      return ready.remove();
+    }
 
     return null;
   }
