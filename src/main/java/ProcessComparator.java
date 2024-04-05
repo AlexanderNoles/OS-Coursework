@@ -1,5 +1,6 @@
 import java.util.Comparator;
 
+//This is used in the priority queue for processes
 public class ProcessComparator implements Comparator<Process> {
     //lower number means higher priority
     @Override

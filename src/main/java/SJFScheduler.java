@@ -134,7 +134,7 @@ public class SJFScheduler extends AbstractScheduler {
       else
       {
         //This throws an error as there should always be at least 1 previous burst time
-        //(the initial burst estimate)
+        //(the initial burst added when the previous burst list is initialized)
         System.err.println("No previous burst times!");
         System.exit(1);
       }
