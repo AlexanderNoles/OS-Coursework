@@ -18,11 +18,10 @@ public class Experiment2 {
         if (args.length == 0)
         {
             for (int i = 0; i < 5; i++) {
-                Integer cpuBurstFrame = (10 + (5 * i));
                 //For each cpu burst frame we want to run each simulator with all the inputs
                 //First we need to create the input dir string
 
-                String inputDir = "experiment2/input/CPU-BURST-" + cpuBurstFrame + "/";
+                String inputDir = "experiment2/input/CPU-BURST-" + (i+1) + "/";
                 String[] simArgs = new String[7];
                 //5 is  the number of input files per cpu-burst frame
                 for (int j = 0; j < 5; j++)
@@ -34,7 +33,7 @@ public class Experiment2 {
                 for (String scheduler : targetSchedulers)
                 {
                     simArgs[0] = "experiment2/" + scheduler + ".prp";
-                    simArgs[1] = "experiment2/output/CPU-BURST-" + cpuBurstFrame + "/" + scheduler + ".out";
+                    simArgs[1] = "experiment2/output/CPU-BURST-" + (i+1) + "/" + scheduler + ".out";
                     Simulator.main(simArgs);
                 }
             }
@@ -44,7 +43,7 @@ public class Experiment2 {
             //Autogenerate input files, input parameters have been set up ahead of time
 
             for (int i = 0; i < 5; i++) {
-                String dir = "experiment2/input/CPU-BURST-" + (10 + (5 * i)) + "/";
+                String dir = "experiment2/input/CPU-BURST-" + (i+1) + "/";
                 for (int j = 0; j < 5; j++)
                 {
                     InputGenerator.main(new String[]
