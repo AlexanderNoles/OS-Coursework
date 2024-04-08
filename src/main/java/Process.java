@@ -40,8 +40,7 @@ public abstract class Process implements Comparable<Process> {
     //We can use the turnaround time and the amount of time the process was running for
     //(cpuTime) to figure out how long the process was waiting for
 
-    //(When the responseTime is zero, this is the same as blockedTime)
-    return getTurnaroundTime() - cpuTime;
+    return (getTurnaroundTime() - cpuTime);
   }
 
   /**
