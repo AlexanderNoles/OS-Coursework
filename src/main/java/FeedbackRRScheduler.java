@@ -14,7 +14,7 @@ public class FeedbackRRScheduler extends AbstractScheduler {
 
   @Override
   public void initialize(Properties parameters) {
-    ready = new PriorityQueue<Process>(10, new ProcessComparator());
+    ready = new PriorityQueue<Process>(10);
     try{
       timeQuantum = Integer.parseInt(parameters.getProperty("timeQuantum"));
     }
