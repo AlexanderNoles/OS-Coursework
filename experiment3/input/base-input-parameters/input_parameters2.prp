@@ -1,9 +1,9 @@
 #
-#Tue Apr 09 15:50:23 BST 2024
+#Tue Apr 09 16:23:26 BST 2024
 meanInterArrival=150.0
 meanIOBurst=15.0
 meanNumberBursts=2.0
 seed=231789128371242
 staticPriority=0
-numberOfProcesses=25
+numberOfProcesses=50
 meanCpuBurst=15.0

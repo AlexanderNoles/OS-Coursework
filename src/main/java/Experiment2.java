@@ -32,7 +32,7 @@ public class Experiment2 {
                 //Then we run the simulator with those inputs on all the target simulators
                 for (String scheduler : targetSchedulers)
                 {
-                    simArgs[0] = "experiment2/" + scheduler + ".prp";
+                    simArgs[0] = "experiment2/input/" + scheduler + ".prp";
                     simArgs[1] = "experiment2/output/CPU-BURST-" + (i+1) + "/" + scheduler + ".out";
                     Simulator.main(simArgs);
                 }
