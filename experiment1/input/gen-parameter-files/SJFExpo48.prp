@@ -1,0 +1,9 @@
+#
+#Tue Apr 09 15:16:04 BST 2024
+scheduler=SJFScheduler
+timeLimit=10000
+alphaBurstEstimate=0.5
+periodic=false
+timeQuantum=48
+initialBurstEstimate=10
+interruptTime=0

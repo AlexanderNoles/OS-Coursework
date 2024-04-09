@@ -73,7 +73,6 @@ public class ProcessModel {
     Event newEvent = process.setRunning(currentTime+interruptTime, timeQuantum);
     if (newEvent != null) {
       newEvents.add(newEvent);
-      //System.out.println("EVENT OUTPUT:       " + newEvent.toString()); //Testing code
     }
     // dispatch selected process
     dispatch(process);

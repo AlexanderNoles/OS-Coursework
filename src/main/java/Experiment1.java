@@ -15,7 +15,7 @@ public class Experiment1 {
     };
 
     public static final int minQuantum = 5;
-    public static final int maxQuantum = 25;
+    public static final int maxQuantum = 50;
 
 
     /**
@@ -48,7 +48,7 @@ public class Experiment1 {
                 {
                     simArgs[0] = "experiment1/input/gen-parameter-files/" + scheduler + Integer.toString(i) + ".prp";
                     simArgs[1] = "experiment1/output/raw/"
-                            + Integer.toString(totalOutputCount+100) + "-"
+                            + Integer.toString(totalOutputCount+100) + "-" //We add 100 to fix a sorting issue with listFiles
                             + Integer.toString(i)
                             + scheduler
                             + ".out";
