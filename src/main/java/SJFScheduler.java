@@ -11,7 +11,6 @@ public class SJFScheduler extends AbstractScheduler {
   private HashMap<Integer, List<Integer>> previousBursts;
 
   protected int initialBurstEstimate;
-  protected int timeQuantum;
   protected float alphaBurstEstimate;
 
   @Override
@@ -35,14 +34,6 @@ public class SJFScheduler extends AbstractScheduler {
     }
     catch(NumberFormatException e) {
       System.err.println("alphaBurstEstimate not a number.");
-      System.exit(1);
-    }
-
-    try{
-      timeQuantum = Integer.parseInt(parameters.getProperty("timeQuantum"));
-    }
-    catch(NumberFormatException e) {
-      System.err.println("timeQuantum not a number.");
       System.exit(1);
     }
   }
@@ -146,10 +137,5 @@ public class SJFScheduler extends AbstractScheduler {
     }
 
     return -1;
-  }
-
-  @Override
-  public int getTimeQuantum() {
-    return timeQuantum;
   }
 }

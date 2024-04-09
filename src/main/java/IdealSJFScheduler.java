@@ -9,23 +9,10 @@ import java.util.Properties;
 public class IdealSJFScheduler extends AbstractScheduler {
 
   protected LinkedList<Process> ready;
-  protected int timeQuantum;
 
   @Override
   public void initialize(Properties parameters) {
     ready = new LinkedList<Process>();
-    try{
-      timeQuantum = Integer.parseInt(parameters.getProperty("timeQuantum"));
-    }
-    catch(NumberFormatException e) {
-      System.err.println("timeQuantum not a number.");
-      System.exit(1);
-    }
-  }
-
-  @Override
-  public int getTimeQuantum() {
-    return timeQuantum;
   }
 
   /**
