@@ -1,4 +1,11 @@
-java -cp target/os-coursework1-1.0-SNAPSHOT.jar Experiment1
-java -cp target/os-coursework1-1.0-SNAPSHOT.jar Experiment2
-java -cp target/os-coursework1-1.0-SNAPSHOT.jar Experiment3
+@ECHO OFF
+
+javac -d target/classes src/main/java/*
+ECHO ---
+ECHO Compiled to target/classes
+ECHO ---
+PAUSE
+java -cp target/classes Experiment1
+java -cp target/classes Experiment2
+java -cp target/classes Experiment3
 

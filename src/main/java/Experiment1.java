@@ -59,7 +59,7 @@ public class Experiment1 {
 
             //Transform into useful output files
             File[] rawFiles = new File("experiment1/output/raw").listFiles();
-            String outputString = "";
+            String outputString = "x identifier y\n";
 
             for (int i = 0; i < totalOutputCount; i++)
             {
@@ -74,7 +74,20 @@ public class Experiment1 {
                         totalTurnaroundTime += Integer.parseInt(rawFile[j].split("\\s+")[7]);
                     }
 
-                    outputString += rawFiles[i].getName() + "  " + (totalTurnaroundTime/(rawFile.length-2)) + "\n";
+                    String identifier = rawFiles[i].getName();
+                    identifier = identifier.split("-")[1];
+                    identifier = identifier.replace(".out", "");
+                    if (i >= 25)
+                    {
+                        identifier = identifier.substring(0, 2) + "," + identifier.substring(2);
+                    }
+                    else
+                    {
+                        identifier = identifier.substring(0, 1) + "," + identifier.substring(1);
+                    }
+
+
+                    outputString += identifier + "," + (totalTurnaroundTime/(rawFile.length-2)) + "\n";
 
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException(e);
